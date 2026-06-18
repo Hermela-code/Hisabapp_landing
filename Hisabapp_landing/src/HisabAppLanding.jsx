@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   MessageSquare, BarChart2, Shield, Clock, MapPin, 
   Users, Package, ArrowRight, TrendingUp, ShoppingCart, 
-  ArrowDown, CheckCircle2, Mail, ChevronRight, Building, Image as ImageIcon
+  ArrowDown, CheckCircle2, Mail, ChevronRight, Building, Image as ImageIcon, X
 } from 'lucide-react';
 
 // --- ANIMATION WRAPPER COMPONENT (For Scroll) ---
@@ -64,42 +64,33 @@ const FadeInChat = ({ children, delay = 0, trigger }) => {
   );
 };
 
-// Custom SVG component for LinkedIn
+// Custom SVG components for social icons
 const Linkedin = ({ size = 16 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
 );
 
+const Twitter = ({ size = 16 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+);
+
 const Navbar = () => (
   <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full bg-white relative z-50">
-    {/* Left Side: Small Logo & Name */}
-    <div className="flex items-center gap-2 relative z-10">
-      <div className="relative flex items-center justify-center h-7">
-        <img 
-          src="/src/assets/logo.png" 
-          alt="HisabApp Logo" 
-          className="h-full w-auto object-contain relative z-10"
-          onError={(e) => { 
-            e.target.style.display = 'none'; 
-            e.target.nextElementSibling.style.display = 'flex'; 
-          }}
-        />
-        {/* Fallback 'H' if logo.png is missing */}
-        <div className="hidden h-7 w-7 bg-orange-600 rounded-md items-center justify-center text-white font-bold text-sm z-0">
-          H
-        </div>
-      </div>
+    <div className="flex items-center gap-3 relative z-10">
+      <img 
+        src="/src/assets/logo.jpg" 
+        alt="HisabApp Logo" 
+        className="h-8 w-auto object-contain"
+      />
       <span className="font-bold text-xl tracking-tight text-slate-900">HisabApp</span>
     </div>
 
-    {/* Center: Perfectly Aligned Links */}
     <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-sm font-medium text-slate-600 w-max">
-      <a href="#features" className="hover:text-slate-900 transition-colors">Features</a>
-      <a href="#how-it-works" className="hover:text-slate-900 transition-colors">How It Works</a>
-      <a href="#intelligence" className="hover:text-slate-900 transition-colors">Intelligence</a>
-      <a href="#about" className="hover:text-slate-900 transition-colors">About</a>
+      <a href="#features" className="hover:text-orange-500 transition-colors">Features</a>
+      <a href="#how-it-works" className="hover:text-orange-500 transition-colors">How It Works</a>
+      <a href="#intelligence" className="hover:text-orange-500 transition-colors">Intelligence</a>
+      <a href="#about" className="hover:text-orange-500 transition-colors">About</a>
     </div>
 
-    {/* Right Side: Spacer */}
     <div className="w-8 relative z-10"></div>
   </nav>
 );
@@ -108,7 +99,6 @@ const Hero = () => (
   <section className="px-8 pt-16 pb-32 max-w-5xl mx-auto w-full flex flex-col items-center text-center bg-white overflow-hidden">
     
     <RevealOnScroll className="w-full flex justify-center mb-8">
-      {/* Centered Main Logo - Decreased Size */}
       <div className="w-48 md:w-64 h-auto flex items-center justify-center">
         <img 
           src="/src/assets/logo.jpg" 
@@ -119,7 +109,6 @@ const Hero = () => (
             e.target.nextElementSibling.style.display = 'flex'; 
           }}
         />
-        {/* Fallback just in case the image isn't loaded yet */}
         <div className="hidden flex-col items-center justify-center text-slate-400 py-12">
           <ImageIcon size={48} className="mb-4 text-slate-300" />
           <span className="font-medium text-sm">Image not found</span>
@@ -138,7 +127,6 @@ const Hero = () => (
         Welcome to <span className="text-orange-500">HisabApp</span>
       </h1>
       
-      {/* Expanded max-width (max-w-3xl) to force 1 or 2 lines on desktop */}
       <p className="text-lg text-slate-500 leading-relaxed max-w-3xl">
         HisabApp uses AI to help business owners create branches, assign staff, manage inventory, track sales, monitor profits, and receive real-time business intelligence.
       </p>
@@ -151,7 +139,7 @@ const Hero = () => (
 );
 
 const TimelineSection = () => (
-  <section className="py-24 bg-slate-50/50 border-t border-slate-100 overflow-hidden">
+  <section id="features" className="py-24 bg-slate-50/50 border-t border-slate-100 overflow-hidden">
     <RevealOnScroll className="max-w-3xl mx-auto px-8 text-center mb-16">
       <h4 className="text-orange-500 text-xs font-bold tracking-widest uppercase mb-3">AI Setup</h4>
       <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Setup Your Business Like a<br/>Conversation</h2>
@@ -194,7 +182,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-white border-t border-slate-100 overflow-hidden">
+    <section id="how-it-works" className="py-24 bg-white border-t border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8">
         <RevealOnScroll className="text-center mb-16">
           <h4 className="text-orange-500 text-xs font-bold tracking-widest uppercase mb-3">How It Works</h4>
@@ -219,7 +207,7 @@ const HowItWorksSection = () => {
 };
 
 const DashboardSection = () => (
-  <section className="bg-slate-900 text-white py-24 overflow-hidden">
+  <section id="intelligence" className="bg-slate-900 text-white py-24 overflow-hidden">
     <div className="max-w-7xl mx-auto px-8">
       <RevealOnScroll className="text-center mb-16">
         <h4 className="text-orange-500 text-xs font-bold tracking-widest uppercase mb-3">Real-Time Intelligence</h4>
@@ -442,7 +430,7 @@ const RoadmapSection = () => (
 );
 
 const FoundersSection = () => (
-  <section className="py-24 bg-slate-50 border-t border-slate-100 overflow-hidden">
+  <section id="about" className="py-24 bg-slate-50 border-t border-slate-100 overflow-hidden">
     <div className="max-w-4xl mx-auto px-8 text-center">
       <RevealOnScroll>
         <h4 className="text-orange-500 text-xs font-bold tracking-widest uppercase mb-3">Team</h4>
@@ -492,75 +480,174 @@ const FoundersSection = () => (
   </section>
 );
 
-const CTASection = () => (
-  <section className="bg-[#0f172a] py-32 text-center text-white overflow-hidden relative">
-    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none"></div>
-    <RevealOnScroll className="max-w-3xl mx-auto px-8 relative z-10">
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
-        Ready To Run Your Business<br/>
-        <span className="text-orange-500">Smarter?</span>
-      </h2>
-      <p className="text-slate-400 mb-10 text-lg">
-        Manage branches, inventory, sales, and performance from a single AI-powered platform.
-      </p>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-medium transition-transform hover:scale-105 active:scale-95 duration-200 flex items-center gap-2 w-full sm:w-auto justify-center shadow-lg shadow-orange-500/30">
-          Request Demo <ArrowRight size={16} />
-        </button>
-        <button className="bg-transparent border border-slate-700 hover:bg-slate-800 text-white px-8 py-3 rounded-full font-medium transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">
-          <Mail size={16} /> Contact Us
-        </button>
-      </div>
-    </RevealOnScroll>
-  </section>
-);
+// --- FORMSPREE INTEGRATED CONTACT SECTION ---
+const CTASection = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [status, setStatus] = useState(""); 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      // Submits silently in the background
+      const response = await fetch("https://formspree.io/f/mqeovpzy", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+        
+        // Auto-close form after showing success message
+        setTimeout(() => {
+          setShowForm(false);
+          setStatus("");
+        }, 3000); 
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <section className="bg-[#0f172a] py-32 text-center text-white overflow-hidden relative">
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent pointer-events-none"></div>
+      
+      <RevealOnScroll className="max-w-3xl mx-auto px-8 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+          Ready To Run Your Business<br/>
+          <span className="text-orange-500">Smarter?</span>
+        </h2>
+        <p className="text-slate-400 mb-10 text-lg">
+          Manage branches, inventory, sales, and performance from a single AI-powered platform.
+        </p>
+
+        {!showForm ? (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button 
+              onClick={() => setShowForm(true)}
+              className="bg-transparent border border-slate-600 hover:bg-slate-800 text-white px-8 py-3 rounded-full font-medium transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
+            >
+              <Mail size={16} /> Contact Us
+            </button>
+          </div>
+        ) : (
+          <div className="max-w-md mx-auto bg-slate-800/80 p-8 rounded-3xl border border-slate-700 text-left backdrop-blur-sm animate-in fade-in zoom-in duration-300 shadow-2xl">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-bold text-white">Send us a message</h3>
+              <button onClick={() => { setShowForm(false); setStatus(""); }} className="text-slate-400 hover:text-white transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+            
+            {status === "success" ? (
+              <div className="text-center py-8 animate-in zoom-in duration-300">
+                <div className="w-16 h-16 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 size={32} />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-2">Message Sent!</h4>
+                <p className="text-slate-400 text-sm">Thanks for reaching out. We'll get back to you soon.</p>
+              </div>
+            ) : (
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 mb-1">Name</label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    required 
+                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500 transition-colors" 
+                    placeholder="Your name" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 mb-1">Email</label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    required 
+                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500 transition-colors" 
+                    placeholder="your@email.com" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 mb-1">Message</label>
+                  <textarea 
+                    name="message"
+                    required 
+                    rows="3" 
+                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500 transition-colors resize-none" 
+                    placeholder="How can we help you?"
+                  ></textarea>
+                </div>
+                
+                {status === "error" && (
+                  <p className="text-red-400 text-xs mt-2">Oops! Something went wrong. Please try again.</p>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={status === "submitting"}
+                  className="w-full bg-orange-600 hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-4 py-3 rounded-xl font-medium transition-colors mt-2 flex items-center justify-center gap-2"
+                >
+                  {status === "submitting" ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
+          </div>
+        )}
+      </RevealOnScroll>
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-white border-t border-slate-100 pt-16 pb-8 overflow-hidden">
     <div className="max-w-7xl mx-auto px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <RevealOnScroll className="md:col-span-1">
-          <div className="flex items-center gap-2 mb-6">
-            <div className="relative flex items-center justify-center h-6">
-              <img 
-                src="/src/assets/logo.png" 
-                alt="HisabApp Logo" 
-                className="h-full w-auto object-contain relative z-10"
-                onError={(e) => { 
-                  e.target.style.display = 'none'; 
-                  e.target.nextElementSibling.style.display = 'flex'; 
-                }}
-              />
-              <div className="hidden h-6 w-6 bg-orange-600 rounded-md items-center justify-center text-white font-bold text-xs z-0">
-                H
-              </div>
-            </div>
+          <div className="flex items-center gap-3 mb-6">
+            <img 
+              src="/src/assets/logo.jpg" 
+              alt="HisabApp Logo" 
+              className="h-8 w-auto object-contain"
+            />
             <span className="font-bold text-xl text-slate-900 tracking-tight">HisabApp</span>
           </div>
           <p className="text-slate-500 text-sm mb-6 leading-relaxed">
             The AI-powered business operating system for small and medium businesses across Africa.
           </p>
           <div className="flex gap-3">
-            <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:text-orange-500 hover:border-orange-500 cursor-pointer transition-all hover:-translate-y-1"><Linkedin size={16}/></div>
-            <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:text-orange-500 hover:border-orange-500 cursor-pointer transition-all hover:-translate-y-1"><Mail size={16}/></div>
+            <a href="https://www.linkedin.com/in/hermela-girma-88a029325" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:text-orange-500 hover:border-orange-500 cursor-pointer transition-all hover:-translate-y-1"><Linkedin size={16}/></a>
+            <a href="mailto:contact@hisabapp.com" className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:text-orange-500 hover:border-orange-500 cursor-pointer transition-all hover:-translate-y-1"><Mail size={16}/></a>
           </div>
         </RevealOnScroll>
         
         <RevealOnScroll delay={100}>
           <h4 className="font-bold text-xs tracking-wider text-slate-400 uppercase mb-6">Product</h4>
           <ul className="space-y-4 text-sm text-slate-500">
-            <li><a href="#" className="hover:text-orange-500 transition-colors">Features</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors">How It Works</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors">AI Assistant</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors">Analytics</a></li>
+            <li><a href="#features" className="hover:text-orange-500 transition-colors">Features</a></li>
+            <li><a href="#how-it-works" className="hover:text-orange-500 transition-colors">How It Works</a></li>
+            <li><a href="#intelligence" className="hover:text-orange-500 transition-colors">AI Assistant</a></li>
+            <li><a href="#intelligence" className="hover:text-orange-500 transition-colors">Analytics</a></li>
           </ul>
         </RevealOnScroll>
 
         <RevealOnScroll delay={200}>
           <h4 className="font-bold text-xs tracking-wider text-slate-400 uppercase mb-6">Company</h4>
           <ul className="space-y-4 text-sm text-slate-500">
-            <li><a href="#" className="hover:text-orange-500 transition-colors">About</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors">Founders</a></li>
+            <li><a href="#about" className="hover:text-orange-500 transition-colors">About</a></li>
+            <li><a href="#about" className="hover:text-orange-500 transition-colors">Founders</a></li>
             <li><a href="#" className="hover:text-orange-500 transition-colors">Vision</a></li>
             <li><a href="#" className="hover:text-orange-500 transition-colors">Roadmap</a></li>
           </ul>
@@ -569,9 +656,8 @@ const Footer = () => (
         <RevealOnScroll delay={300}>
           <h4 className="font-bold text-xs tracking-wider text-slate-400 uppercase mb-6">Connect</h4>
           <ul className="space-y-4 text-sm text-slate-500">
-            <li><a href="#" className="hover:text-orange-500 transition-colors">LinkedIn</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors">Email</a></li>
-            <li><a href="#" className="hover:text-orange-500 transition-colors font-medium">Request Demo</a></li>
+            <li><a href="https://www.linkedin.com/in/hermela-girma-88a029325" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition-colors">LinkedIn</a></li>
+            <li><a href="mailto:contact@hisabapp.com" className="hover:text-orange-500 transition-colors">Email</a></li>
           </ul>
         </RevealOnScroll>
       </div>
