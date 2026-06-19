@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   MessageSquare, BarChart2, Shield, Clock, MapPin, 
   Users, Package, ArrowRight, TrendingUp, ShoppingCart, 
-  ArrowDown, CheckCircle2, Mail, ChevronRight, Building, Image as ImageIcon, X, Menu
+  ArrowDown, CheckCircle2, Mail, ChevronRight, Building, Image as ImageIcon, X, Menu, PlayCircle
 } from 'lucide-react';
 
 // --- ANIMATION WRAPPER COMPONENT (For Scroll) ---
@@ -151,9 +151,15 @@ const Hero = () => (
         HisabApp uses AI to help business owners create branches, assign staff, manage inventory, track sales, monitor profits, and receive real-time business intelligence.
       </p>
       
-      <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-medium transition-transform hover:scale-105 active:scale-95 duration-200 shadow-lg shadow-orange-500/30 mt-4 w-full sm:w-auto">
-        Get Started
-      </button>
+      <a 
+        href="https://drive.google.com/file/d/1toQE3pDHZFRclYkjr-RnW0OyWOHN6iqb/view?usp=sharing" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-medium transition-transform hover:scale-105 active:scale-95 duration-200 shadow-lg shadow-orange-500/30 mt-4 w-full sm:w-auto"
+      >
+        <PlayCircle size={20} />
+        Watch a Demo
+      </a>
     </RevealOnScroll>
   </section>
 );
