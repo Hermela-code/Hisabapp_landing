@@ -77,7 +77,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between px-6 md:px-8 py-6 max-w-7xl mx-auto w-full bg-white relative z-50">
       <div className="flex items-center gap-3 relative z-10">
         <img 
-          src="/src/assets/logo.jpg" 
+          src="/logo.jpg" 
           alt="HisabApp Logo" 
           className="h-8 w-auto object-contain"
         />
@@ -121,7 +121,7 @@ const Hero = () => (
     <RevealOnScroll className="w-full flex justify-center mb-8">
       <div className="w-40 sm:w-48 md:w-64 h-auto flex items-center justify-center">
         <img 
-          src="/src/assets/logo.jpg" 
+          src="/logo.jpg" 
           alt="HisabApp Logo" 
           className="w-full h-auto object-contain drop-shadow-sm" 
           onError={(e) => { 
@@ -132,7 +132,7 @@ const Hero = () => (
         <div className="hidden flex-col items-center justify-center text-slate-400 py-12">
           <ImageIcon size={48} className="mb-4 text-slate-300" />
           <span className="font-medium text-sm">Image not found</span>
-          <span className="text-xs mt-2 text-slate-400">Check if logo.jpg is in src/assets/</span>
+          <span className="text-xs mt-2 text-slate-400">Check if logo.jpg is in the public folder</span>
         </div>
       </div>
     </RevealOnScroll>
@@ -465,7 +465,7 @@ const FoundersSection = () => (
         <RevealOnScroll delay={100} className="flex flex-col items-center group">
           <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl bg-slate-200 mb-6 overflow-hidden shadow-md group-hover:shadow-xl transition-all group-hover:-translate-y-2 duration-300 flex items-center justify-center">
              <img 
-               src="/src/assets/hermela.png" 
+               src="/hermela.jpg" 
                alt="Hermela Girma" 
                className="w-full h-full object-cover"
                onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('bg-slate-300') }}
@@ -484,7 +484,7 @@ const FoundersSection = () => (
         <RevealOnScroll delay={200} className="flex flex-col items-center group">
           <div className="w-40 h-40 md:w-48 md:h-48 rounded-3xl bg-slate-200 mb-6 overflow-hidden shadow-md group-hover:shadow-xl transition-all group-hover:-translate-y-2 duration-300 flex items-center justify-center">
              <img 
-               src="/src/assets/gelila.png" 
+               src="/gelila.jpg" 
                alt="Gelila" 
                className="w-full h-full object-cover"
                onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.classList.add('bg-slate-300') }}
@@ -638,7 +638,7 @@ const Footer = () => (
         <RevealOnScroll className="sm:col-span-2 md:col-span-1">
           <div className="flex items-center gap-3 mb-6">
             <img 
-              src="/src/assets/logo.jpg" 
+              src="/logo.jpg" 
               alt="HisabApp Logo" 
               className="h-8 w-auto object-contain"
             />
